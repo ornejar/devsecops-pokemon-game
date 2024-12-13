@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokemon-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pokemon-manager
+  template:
+    metadata:
+      labels:
+        app: pokemon-manager
+    spec:
+      containers:
+      - name: pokemon-manager
+        image: ornir1208/pokemon-manager:latest
+        ports:
+        - containerPort: 5000

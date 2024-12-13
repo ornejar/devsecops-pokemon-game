@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: battle-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: battle-manager
+  template:
+    metadata:
+      labels:
+        app: battle-manager
+    spec:
+      containers:
+      - name: battle-manager
+        image: ornir1208/battle-manager:latest
+        ports:
+        - containerPort: 5000

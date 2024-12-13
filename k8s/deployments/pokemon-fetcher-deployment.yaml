@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokemon-fetcher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pokemon-fetcher
+  template:
+    metadata:
+      labels:
+        app: pokemon-fetcher
+    spec:
+      containers:
+      - name: pokemon-fetcher
+        image: ornir1208/pokemon-fetcher:latest
+        ports:
+        - containerPort: 5000

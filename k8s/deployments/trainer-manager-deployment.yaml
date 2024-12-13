@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trainer-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trainer-manager
+  template:
+    metadata:
+      labels:
+        app: trainer-manager
+    spec:
+      containers:
+      - name: trainer-manager
+        image: ornir1208/trainer-manager:latest
+        ports:
+        - containerPort: 5000
